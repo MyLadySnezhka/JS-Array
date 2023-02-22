@@ -6,10 +6,12 @@ const elBtnOk = document.querySelector('button[name=btnOk]');
 const elBtnClr = document.querySelector('button[name=btnClr');
 const elSexDiv = document.querySelector('.sex');
 const elSelectSex = document.querySelector('select[name=sex_select]');
-const elNameList = document.querySelector('.nameList');
+const elNameList = document.querySelector('.nameList > ol');
+
+let nameArr = [];
 
 //формуємо масив зі списком гендерів та передачу даних з нього 
-//сам масив даних
+//сам масив даних гендер
 const gender = [
     'male',
     'female',
@@ -23,7 +25,7 @@ const selectArr = gender.map((item) => {
 })
 
 //зклеїли разом, роздільник пробіл
-const htmlSelect = selectArr.join(' ');
+const htmlSelect = selectArr.join('');
 
 elSelectSex.innerHTML = htmlSelect;
 
@@ -41,13 +43,22 @@ elNameInput.addEventListener('keyup', () => {
     elNameInput.value = elNameInput.value.replace(/[^a-zA-Zа-яА-ЯёЁ ]/g, '');
 })
 
-
 elBtnOk.addEventListener('click', () => {
     let nameUs = elNameInput.value;
         if (nameUs != '') nameUs = upFirst(nameUs)
         else return;
-    elNameList.innerHTML = nameUs; 
+    nameArr.push(nameUs);
+    //console.log(nameArr);
+    const htmlNameArr = nameArr.map((item) => {
+        const _htmlName = `<li>${item}</li>`;
+        return _htmlName;
+    })
+    const htmlName = htmlNameArr.join(' ');
+    elNameList.innerHTML = htmlName;
+    elNameInput.value = '';
 });
+
+
 
 elBtnClr.addEventListener('click', () => {
     elNameInput.value = '';
