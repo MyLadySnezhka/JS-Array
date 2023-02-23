@@ -13,14 +13,18 @@ let nameArr = [];
 //формуємо масив зі списком гендерів та передачу даних з нього 
 //сам масив даних гендер
 const gender = [
-    'male',
-    'female',
-    'noname'
+    '&#x1F57A male',
+    '&#x1F483 female',
+    '&#x1F46C 2man',
+    '&#x1F46D 2woman',
 ]
+//console.log(gender);
+
 
 //додали html, зформували новий масив
 const selectArr = gender.map((item) => {
     const _html = `<option value="${item}">${item}</option>`;
+    // const _html = `<option value="${item}"><img src="${item.img}"> ${item.sexname}</option>`;
     return _html;
 })
 
@@ -48,6 +52,7 @@ elBtnOk.addEventListener('click', () => {
         if (nameUs != '') nameUs = upFirst(nameUs)
         else return;
     const gender = elSelectSex.value;
+    //console.log(gender);
     nameArr.push({nameUs, gender});
     //console.log(nameArr);
     const htmlNameArr = nameArr.map((item) => {
@@ -59,8 +64,6 @@ elBtnOk.addEventListener('click', () => {
     elNameList.innerHTML = htmlName;
     elNameInput.value = '';
 });
-
-
 
 elBtnClr.addEventListener('click', () => {
     elNameInput.value = '';

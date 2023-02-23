@@ -1,11 +1,11 @@
 .wrap {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 20px auto;
   background-color: aqua;
 }
 
 .name {
-  width: 1200px;
+  width: 600px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
