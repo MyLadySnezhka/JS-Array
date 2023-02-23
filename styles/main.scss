@@ -4,9 +4,11 @@
 }
 
 .name {
-    margin: 10px;
+    margin: 10px auto;
+    display: flex;
+    padding: 10px;
 }
 
 .sex {
-    margin: 10px 0;
+    //margin: 10px;
 }

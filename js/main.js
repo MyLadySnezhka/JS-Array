@@ -47,10 +47,12 @@ elBtnOk.addEventListener('click', () => {
     let nameUs = elNameInput.value;
         if (nameUs != '') nameUs = upFirst(nameUs)
         else return;
-    nameArr.push(nameUs);
+    const gender = elSelectSex.value;
+    nameArr.push({nameUs, gender});
     //console.log(nameArr);
     const htmlNameArr = nameArr.map((item) => {
-        const _htmlName = `<li>${item}</li>`;
+        const _htmlName = `<li>${item.nameUs} ${item.gender}</li>`;
+        //console.log(_htmlName);
         return _htmlName;
     })
     const htmlName = htmlNameArr.join(' ');
