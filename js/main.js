@@ -65,5 +65,6 @@ elBtnOk.addEventListener('click', () => {
 elBtnClr.addEventListener('click', () => {
     elNameInput.value = '';
     elNameList.innerHTML = '';
+    nameArr = [];
 });
 
